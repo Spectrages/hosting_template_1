@@ -9,7 +9,6 @@ export type ButtonProps = Omit<
 > &
   Partial<{
     className: string;
-
     leftIcon: React.ReactNode;
     rightIcon: React.ReactNode;
     onClick: () => void;
@@ -20,17 +19,13 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   className = "",
   leftIcon,
   rightIcon,
-  shape = "",
-  size = "",
-  variant = "",
-  color = "",
   ...restProps
 }) => {
   return (
-    <button className={`${className}`} {...restProps}>
-      {!!leftIcon && leftIcon}
+    <button className={className} {...restProps}>
+      {leftIcon && leftIcon}
       {children}
-      {!!rightIcon && rightIcon}
+      {rightIcon && rightIcon}
     </button>
   );
 };
