@@ -37,3 +37,5 @@ jobs:
           git add -f build
           git commit -m "Add build files"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
