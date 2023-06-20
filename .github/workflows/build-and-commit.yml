@@ -32,7 +32,7 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config --global user.name 'Admin'
+          git config --global user.name 'Spectrages'
           git config --global user.email 'specrages@gmail.com'
           git add -f build
           git commit -m "Add build files"
