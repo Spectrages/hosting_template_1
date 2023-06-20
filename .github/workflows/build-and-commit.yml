@@ -3,7 +3,11 @@ name: Build and Commit
 on:
   push:
     branches-ignore:
-      - "main" # Игнорируем главную ветку, чтобы избежать бесконечного цикла
+      - "main"
+
+  create:
+    branches:
+      - "*"
 
 jobs:
   build-and-commit:
