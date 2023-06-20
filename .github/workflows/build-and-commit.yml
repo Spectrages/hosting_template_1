@@ -26,8 +26,8 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'github-actions@example.com'
+          git config --global user.name 'Admin'
+          git config --global user.email 'specrages@gmail.com'
           git add -f build
           git commit -m "Add build files"
           git push
