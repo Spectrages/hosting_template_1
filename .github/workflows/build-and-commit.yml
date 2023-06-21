@@ -1,9 +1,9 @@
 name: Build and Commit
 
 on:
-  push:
-    branches-ignore:
-      - "main"
+  # push:
+  #   branches-ignore:
+  #     - "main"
 
   create:
     branches:
@@ -32,6 +32,7 @@ jobs:
         run: |
           git config --global user.name 'Spectrages'
           git config --global user.email 'specrages@gmail.com'
+          git pull origin branch-1687346023403 --rebase
           git add -f build
           git commit -m "Add build files"
           git push
