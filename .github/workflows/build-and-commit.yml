@@ -1,12 +1,16 @@
-name: Build and Deploy
+name: Build and Commit
 
 on:
   push:
     branches-ignore:
-      - main
+      - "main"
+
+  create:
+    branches:
+      - "*"
 
 jobs:
-  build-and-deploy:
+  build-and-commit:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +36,6 @@ jobs:
           git add -f build
           git commit -m "Add build files"
           git push
-
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
@@ -40,5 +43,5 @@ jobs:
           git config --global user.email 'specrages@gmail.com'
           gh-pages -d build
 
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
