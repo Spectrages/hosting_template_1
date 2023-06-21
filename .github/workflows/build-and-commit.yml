@@ -33,5 +33,10 @@ jobs:
           git commit -m "Add build files"
           git push
 
+      - name: Deploy to GitHub Pages
+        run: |
+          npm install -g gh-pages
+          gh-pages -d build
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
