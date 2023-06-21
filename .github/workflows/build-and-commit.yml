@@ -34,10 +34,8 @@ jobs:
           git push
       - name: Deploy to GitHub Pages
         run: |
-          npm install -g gh-pages
-          git config --global user.name 'Spectrages'
-          git config --global user.email 'specrages@gmail.com'
-          gh-pages -d build
+          npm install gh-pages
+          npx gh-pages -d build --repo "https://github.com/Spectrages/hosting_template_1.git"
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
