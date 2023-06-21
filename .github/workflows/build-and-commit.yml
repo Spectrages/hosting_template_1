@@ -1,9 +1,9 @@
 name: Build and Commit
 
 on:
-  # push:
-  #   branches-ignore:
-  #     - "main"
+  push:
+    branches-ignore:
+      - "main"
 
   create:
     branches:
