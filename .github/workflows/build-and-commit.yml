@@ -35,5 +35,9 @@ jobs:
           git add -f build
           git commit -m "Add build files"
           git push
+
+      - name: Build and deploy to GitHub Pages
+          run: npm run deploy
+          
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
