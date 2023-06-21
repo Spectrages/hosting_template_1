@@ -35,8 +35,10 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          npm install -g gh-pages
-          gh-pages -d build
+        npm install -g gh-pages
+        git config --global user.name 'Spectrages'
+        git config --global user.email 'specrages@gmail.com'
+        gh-pages -d build
 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
