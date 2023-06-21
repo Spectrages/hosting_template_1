@@ -1,4 +1,6 @@
-name: Build and Commit
+# .github/workflows/deploy.yml
+
+name: Build and Deploy
 
 on:
   push:
@@ -6,7 +8,7 @@ on:
       - "main"
 
 jobs:
-  build-and-commit:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,13 +26,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Commit and push
-        run: |
-          git config --global user.name 'Spectrages'
-          git config --global user.email 'specrages@gmail.com'
-          git add -f build
-          git commit -m "Add build files"
-          git push
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          publish_repo: ${{ github.repository }}
