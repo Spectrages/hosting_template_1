@@ -37,7 +37,7 @@ jobs:
           git push
 
       - name: Build and deploy to GitHub Pages
-          run: npm run deploy
-          
+        run: npm run deploy
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
