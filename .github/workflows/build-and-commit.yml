@@ -1,16 +1,12 @@
-name: Build and Commit
+name: Build and Deploy
 
 on:
   push:
-    branches-ignore:
-      - "main"
-
-  create:
     branches:
       - "*"
 
 jobs:
-  build-and-commit:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: "14"
 
       - name: Install dependencies
         run: npm ci
@@ -29,6 +25,7 @@ jobs:
         run: npm run build
 
       - name: Commit and push
+        if: startsWith(github.ref, 'refs/heads/branch-')
         run: |
           git config --global user.name 'Spectrages'
           git config --global user.email 'specrages@gmail.com'
